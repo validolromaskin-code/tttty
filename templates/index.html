@@ -1,1 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Sound Loop</title>
 
+    <style>
+        body {
+            background: #111;
+            color: white;
+            text-align: center;
+            margin-top: 80px;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            width: 260px;
+            height: 260px;
+
+            background-image: url("/static/button.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain; /* ВАЖНО: видно всё */
+
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+
+            box-shadow: 0 10px 0 #000;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        button:active {
+            transform: translateY(10px) scale(0.96);
+            box-shadow: 0 0 0 #000;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Проигрывание звука</h1>
+
+    <button onclick="playSound()" aria-label="play"></button>
+
+    <audio id="audio" loop>
+        <source src="/static/sound.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function playSound() {
+            const audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+
+</body>
+</html>
