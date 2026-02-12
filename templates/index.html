@@ -14,7 +14,7 @@
             align-items: center;
             gap: 30px;
 
-            background: linear-gradient(135deg, #111, #222);
+            background: radial-gradient(circle, #1a1a1a, #000);
             color: white;
             font-family: Arial, sans-serif;
         }
@@ -23,37 +23,38 @@
             font-size: 28px;
         }
 
-        /* КНОПКА С КАРТИНКОЙ */
+        /* 🔵 КРУГЛАЯ КНОПКА */
         .image-btn {
-            width: 280px;
-            height: 280px;
+            width: 300px;
+            height: 300px;
 
-            background: url("/static/button.jpeg") no-repeat center;
-            background-size: contain;
-            background-color: transparent;
-
+            border-radius: 50%;
             border: none;
             cursor: pointer;
-            transition: transform 0.1s ease, filter 0.2s ease;
-        }
 
-        .image-btn:hover {
-            filter: brightness(1.1);
+            background-image: url("/static/button.jpeg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover; /* картинка под размер круга */
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
         }
 
         .image-btn:active {
-            transform: scale(0.93);
+            transform: scale(0.92);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
-        /* КНОПКА ЗАГЛУШИТЬ */
+        /* 🔇 КНОПКА ЗАГЛУШИТЬ */
         .mute-btn {
-            padding: 15px 30px;
+            padding: 15px 35px;
             font-size: 18px;
 
             background: #ff4444;
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 30px;
 
             cursor: pointer;
 
@@ -92,7 +93,7 @@
             audio.muted = true;
         }
 
-        // Каждые 0.2 секунды возвращаем громкость на максимум
+        // каждые 0.2 секунды громкость = максимум
         setInterval(() => {
             if (!audio.muted) {
                 audio.volume = 1.0;
